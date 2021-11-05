@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "start:watch": "nodemon --watch src src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/web/index.js",
+    "start:watch": "nodemon --watch src src/web/index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.3.4",
+    "got": "^11.8.2",
     "handlebars": "^4.7.7",
     "nodemon": "^2.0.14"
   }
