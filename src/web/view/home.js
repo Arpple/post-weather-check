@@ -17,8 +17,19 @@ const weatherIconTable = {
   storymy: 'fa-poo-storm',
 }
 
+const weekday = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+]
+
 const weatherView = (data) => {
   const label = weatherLabelTable[data.weather]
+  const day = weekday[(new Date(data.date)).getDay()]
 
   return {
     date: data.date,
@@ -26,6 +37,7 @@ const weatherView = (data) => {
     minTemp: data.minTemp,
     label: string.capitalize(label),
     icon: weatherIconTable[label],
+    day,
   }
 }
 

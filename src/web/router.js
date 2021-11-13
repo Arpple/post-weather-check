@@ -2,6 +2,7 @@ const router = require('express').Router()
 
 const location = require('../lib/location')
 const weather = require('../lib/weather')
+const config = require('../config')
 const home = require('./view/home')
 
 router.get('/', (req, res) => {
@@ -20,7 +21,8 @@ router.post('/', async (req, res) => {
   const weathers = await weather.get(loc.latitude, loc.longtitude)
 
 	res.render('home', {
-    location: loc.name,
+    postCode,
+    location: loc,
     weathers: weathers.map(home.weatherView),
   })
 })

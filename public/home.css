@@ -1,0 +1,31 @@
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.mt {
+	margin-top: 2em;
+}
+
+.text-center {
+	text-align:center
+}
+
+.row {
+	margin-left: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.row-item {
+	margin: 1em;
+	margin-top: 0;
+	margin-left: 0;
+	flex-shrink: 1;
+}
+
+.weather-item {
+	border: 1px solid;
+	padding: 0.5em;
+}

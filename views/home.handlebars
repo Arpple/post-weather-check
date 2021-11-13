@@ -1,34 +1,57 @@
-<script>
-  function
-</script>
+<link rel="stylesheet" href="home.css">
 
-<form action="/" method="post">
-	<label for="post-code">Post Code:</label>
-	<input type="text" id="post-code" name="postCode" value="{{postCode}}">
-	<button type="submit">Submit</button>
-</form>
-
-{{#if location}}
-  <h2>{{location}}</h2>
-{{/if}}
-
-{{#if weathers}}
-  <div class="row">
-    {{#each weathers}}
-      <div class="col">
-        <div class="row">
-          <i class="fas {{this.icon}}"></i>
-        </div>
-        <div class="row">
-          {{this.date}}
-        </div>
-        <div class="row">
-          {{this.label}}
-        </div>
-        </div class="row">
-          max: {{this.maxTemp}} min: {{this.minTemp}}
-        </div>
+<div class="content">
+  <div class="row mt">
+    <form action="/" method="post">
+      <div class="form-group">
+        <label for="post-code">Post Code:</label>
+        <input type="text" id="post-code" name="postCode" value="{{postCode}}">
+        <button class="btn btn-primary" type="submit">Submit</button>
       </div>
-    {{/each}}
+    </form>
   </div>
-{{/if}}
+
+  {{#if location}}
+    <div class="row mt">
+      <h2>{{location.name}}</h2>
+    </div>
+  {{/if}}
+
+  {{#if weathers}}
+    <div class="row">
+      {{#each weathers}}
+        <div class="row-item weather-item">
+          <div class="text-center">
+            <i class="fas {{this.icon}}"></i>
+          </div>
+          <div class="text-center">
+            <p>{{this.date}} {{this.day}}</p>
+          </div>
+          <div class="text-center">
+            <h2>{{this.label}}</h2>
+          </div>
+          <div>
+            <p class="text-center">max: {{this.maxTemp}} min: {{this.minTemp}}</p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+
+  <div class="row mt">
+    <div class="row-item">
+      {{#if location}}
+        <iframe
+          width="500" height="400" frameborder="0"
+          src="https://www.bing.com/maps/embed?h=400&w=500&cp={{location.latitude}}~{{location.longtitude}}&lvl=12&typ=s&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no"
+        >
+        </iframe>
+      {{/if}}
+    </div>
+    <div class="row-item">
+      <h3>About</h3>
+      <p><a href="https://github.com/arpple">github</a></p>
+    </div>
+  </div>
+</div>

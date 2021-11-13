@@ -5,6 +5,7 @@ const app = express()
 app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 const router = require('./router')
 app.use(router)
