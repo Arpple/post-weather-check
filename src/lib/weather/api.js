@@ -19,20 +19,12 @@ const weatherCodeTable = {
   96: 'thunderstorm', 99: 'thunderstorm',
 }
 
+const timezone = 'Asia/Tokyo'
+
 const createRequest = (lat, long) => {
   return {
-    url: 'https://api.open-meteo.com/v1/forecast',
-    options: {
-      searchParams: {
-        daily: 'weathercode,temperature_2m_max,temperature_2m_min',
-        latitude: lat,
-        longtitude: long,
-        timezone: 'Asia/Tokyo',
-      },
-      headers: {
-        Accept: 'application/json'
-      }
-    }
+    url: `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(timezone)}`,
+    options: {},
   }
 }
 

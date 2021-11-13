@@ -6,18 +6,8 @@ test('create request url', (t) => {
   const long = 2
   const request = api.createRequest(lat, long)
 
-  t.is(request.url, 'https://api.open-meteo.com/v1/forecast')
-  t.deepEqual(request.options, {
-    searchParams: {
-      latitude: 1,
-      longtitude: 2,
-      daily: 'weathercode,temperature_2m_max,temperature_2m_min',
-      timezone: 'Asia/Tokyo',
-    },
-    headers: {
-      Accept: 'application/json',
-    }
-  })
+  const expectedUrl = 'https://api.open-meteo.com/v1/forecast?latitude=1&longitude=2&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo'
+  t.is(request.url, expectedUrl)
 })
 
 const response = {

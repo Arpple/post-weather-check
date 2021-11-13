@@ -7,3 +7,11 @@
 {{#if location}}
   <h2>{{location}}</h2>
 {{/if}}
+
+{{#if weathers}}
+  <ul>
+    {{#each weathers}}
+      <li>{{this.weather}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
