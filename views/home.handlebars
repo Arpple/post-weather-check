@@ -1,3 +1,7 @@
+<script>
+  function
+</script>
+
 <form action="/" method="post">
 	<label for="post-code">Post Code:</label>
 	<input type="text" id="post-code" name="postCode" value="{{postCode}}">
@@ -9,9 +13,22 @@
 {{/if}}
 
 {{#if weathers}}
-  <ul>
+  <div class="row">
     {{#each weathers}}
-      <li>{{this.weather}}</li>
+      <div class="col">
+        <div class="row">
+          <i class="fas {{this.icon}}"></i>
+        </div>
+        <div class="row">
+          {{this.date}}
+        </div>
+        <div class="row">
+          {{this.label}}
+        </div>
+        </div class="row">
+          max: {{this.maxTemp}} min: {{this.minTemp}}
+        </div>
+      </div>
     {{/each}}
-  </ul>
+  </div>
 {{/if}}
