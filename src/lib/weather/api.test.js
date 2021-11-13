@@ -1,6 +1,25 @@
 const test = require('ava')
 const api = require('./api')
 
+test('create request url', (t) => {
+  const lat = 1
+  const long = 2
+  const request = api.createRequest(lat, long)
+
+  t.is(request.url, 'https://api.open-meteo.com/v1/forecast')
+  t.deepEqual(request.options, {
+    searchParams: {
+      latitude: 1,
+      longtitude: 2,
+      daily: 'weathercode,temperature_2m_max,temperature_2m_min',
+      timezone: 'Asia/Tokyo',
+    },
+    headers: {
+      Accept: 'application/json',
+    }
+  })
+})
+
 const response = {
   "generationtime_ms": 0.5779266357421875,
   "utc_offset_seconds": 32400,

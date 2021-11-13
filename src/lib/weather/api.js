@@ -19,6 +19,23 @@ const weatherCodeTable = {
   96: 'thunderstorm', 99: 'thunderstorm',
 }
 
+const createRequest = (lat, long) => {
+  return {
+    url: 'https://api.open-meteo.com/v1/forecast',
+    options: {
+      searchParams: {
+        daily: 'weathercode,temperature_2m_max,temperature_2m_min',
+        latitude: lat,
+        longtitude: long,
+        timezone: 'Asia/Tokyo',
+      },
+      headers: {
+        Accept: 'application/json'
+      }
+    }
+  }
+}
+
 const fromResponse = (body) => {
   const daily = body.daily
   return daily.time.slice(0, 3).map((date, i) => {
@@ -31,4 +48,4 @@ const fromResponse = (body) => {
   })
 }
 
-module.exports = { fromResponse }
+module.exports = { createRequest, fromResponse }

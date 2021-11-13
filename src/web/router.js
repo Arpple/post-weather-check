@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
   const loc = await location.get(postCode)
 
 	res.render('home', {
-    location: loc
+    location: loc.name,
   })
 })
 
