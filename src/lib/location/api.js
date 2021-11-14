@@ -1,3 +1,7 @@
+/**
+ * Geonames api
+ * ref: http://www.geonames.org/export/web-services.html
+ * */
 const got = require('got')
 
 const createRequest = (postCode, user) => {
