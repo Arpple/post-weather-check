@@ -2,6 +2,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 
 const app = express()
+require('express-async-errors')
 app.engine('handlebars', handlebars())
 app.set('view engine', 'handlebars')
 app.use(express.urlencoded({ extended: true }))
@@ -11,8 +12,8 @@ const router = require('./router')
 app.use(router)
 
 app.use((err, req, res, next) => {
-  console.log(err.stack)
-  res.status(500).send('Oops!')
+  console.log(err)
+	res.render('error', { error: err })
 })
 
 app.listen(3000, () => {

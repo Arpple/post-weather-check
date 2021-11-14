@@ -41,3 +41,12 @@ test('read api response', (t) => {
   t.is(location.latitude, 35)
   t.is(location.longtitude, 139)
 })
+
+test('read api with no matching response', (t) => {
+  const response = {
+    "postalCodes": []
+  }
+
+  const location = api.fromResponse(response)
+  t.is(location, null)
+})

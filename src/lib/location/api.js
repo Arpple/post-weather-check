@@ -16,7 +16,14 @@ const createRequest = (postCode, user) => {
 }
 
 const fromResponse = (body) => {
-  const code = body.postalCodes[0]
+  const codes = body.postalCodes
+
+  // 0 = no matching, >1 = not exactly match
+  if (codes.length !== 1) {
+    return null
+  }
+
+  const code = codes[0]
   return {
     name: `${code.adminName1}, ${code.adminName2}, ${code.placeName}`,
     latitude: code.lat,

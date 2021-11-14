@@ -10,6 +10,11 @@
       </div>
     </form>
   </div>
+  <div class="row">
+    {{#if locationNotFound}}
+      <p>result not found!</p>
+    {{/if}}
+  </div>
 
   {{#if location}}
     <div class="row mt">
@@ -40,15 +45,15 @@
 
 
   <div class="row mt">
-    <div class="row-item">
-      {{#if location}}
+    {{#if location}}
+      <div class="row-item">
         <iframe
           width="500" height="400" frameborder="0"
-          src="https://www.bing.com/maps/embed?h=400&w=500&cp={{location.latitude}}~{{location.longtitude}}&lvl=12&typ=s&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no"
+          src="https://www.bing.com/maps/embed?h=400&w=500&cp={{location.latitude}}~{{location.longtitude}}&lvl=13&typ=s&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no"
         >
         </iframe>
-      {{/if}}
-    </div>
+      </div>
+    {{/if}}
     <div class="row-item">
       <h3>About</h3>
       <p><a href="https://github.com/arpple">github</a></p>

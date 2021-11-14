@@ -6,7 +6,6 @@ const get = async (postCode) => {
   const user = config.geoNamesApi.username
   const request = api.createRequest(postCode, user)
   const { body } = await got.get(request.url, request.options)
-
   return api.fromResponse(JSON.parse(body))
 }
 
